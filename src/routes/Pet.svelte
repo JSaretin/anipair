@@ -13,30 +13,30 @@
 	{#if book}
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<div
-			class="flex flex-col gap-4 overflow-y-scroll absolute inset-0 bg-black bg-opacity-80 backdrop-blur-sm p-4"
+			class="flex text-base lg:text-sm flex-col gap-4 overflow-y-scroll absolute inset-0 bg-black bg-opacity-80 backdrop-blur-sm p-4"
 			on:keyup
 			on:click|self={() => {
 				book = false;
 			}}
 		>
-			<label class="text-gray-200 flex flex-col">
+			<label class="text-gray-200 flex flex-col w-full">
 				meeting date
-				<input class="p-1 mt-1 rounded text-gray-900" type="datetime-local" />
+				<input class="p-2 w-full mt-1 rounded text-gray-900" type="datetime-local" />
 			</label>
 
-			<label class="text-gray-200 flex flex-col">
+			<label class="text-gray-200 flex flex-col w-full">
 				location
-				<textarea class="p-1 mt-1 rounded text-gray-900 resize-none" />
+				<textarea class="p-2 w-full mt-1 rounded text-gray-900 resize-none" />
 			</label>
 
-			<label class="text-gray-200 flex flex-col">
+			<label class="text-gray-200 flex flex-col w-full">
 				call number
-				<input type="text" class="p-1 mt-1 rounded text-gray-900" />
+				<input type="text" inputmode="numeric" class="p-2 w-full mt-1 rounded text-gray-900" />
 			</label>
 
-			<label class="text-gray-200 flex flex-col">
+			<label class="text-gray-200 flex flex-col w-full">
 				how many meeting
-				<input type="text" inputmode="numeric" class="p-1 mt-1 rounded text-gray-900" />
+				<input type="text" inputmode="numeric" class="p-2 w-full mt-1 rounded text-gray-900" />
 			</label>
 
 			<button class="bg-green-500 p-2 rounded-md text-white font-bold">confirm booking</button>
