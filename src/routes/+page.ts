@@ -2,7 +2,7 @@ import { env } from '$env/dynamic/public';
 import type { AniInfo } from '$lib/structure';
 import PocketBase from 'pocketbase';
 
-const pb = new PocketBase(env.PUBLIC_DATABASE_URI);
+const pb = new PocketBase('https://db.anipair.com');
 
 
 export async function load() {

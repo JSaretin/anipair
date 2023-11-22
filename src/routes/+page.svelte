@@ -3,7 +3,7 @@
 	import type { AniInfo } from '$lib/structure';
 	import { writable, type Writable } from 'svelte/store';
 
-	const imageUri = env.PUBLIC_DATABASE_URI;
+	// const imageUri = env.PUBLIC_DATABASE_URI;
 
 	const aniInfos: Writable<AniInfo[]> = writable([]);
 
@@ -24,7 +24,7 @@
 					{#each aniInfo.images as url, _}
 						<div class="shrink-0 w-full h-full snap-center">
 							<img
-								src="{imageUri}/api/files/pets/{aniInfo.id}/{url}"
+								src="https://db.anipair.com/api/files/pets/{aniInfo.id}/{url}"
 								alt=""
 								class="w-full h-full object-cover"
 							/>
