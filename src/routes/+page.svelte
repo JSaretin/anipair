@@ -11,7 +11,7 @@
 	$aniInfos = data.aniInfors;
 </script>
 
-<div class="w-full p-6">
+<div class="w-full p-1 lg:p-6">
 	<h2 class="text-2xl text-gray-800 uppercase font-bold">Meeting</h2>
 	<div class="mt-6 text-sm grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6 gap-6 w-full mx-auto">
 		{#each [...$aniInfos].reverse() as aniInfo (aniInfo.id)}
