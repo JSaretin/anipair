@@ -19,22 +19,22 @@
 				book = false;
 			}}
 		>
-			<label class="text-gray-200">
+			<label class="text-gray-200 flex flex-col">
 				meeting date
 				<input class="p-1 mt-1 rounded text-gray-900" type="datetime-local" />
 			</label>
 
-			<label class="text-gray-200">
+			<label class="text-gray-200 flex flex-col">
 				location
 				<textarea class="p-1 mt-1 rounded text-gray-900 resize-none" />
 			</label>
 
-			<label class="text-gray-200">
+			<label class="text-gray-200 flex flex-col">
 				call number
 				<input type="text" class="p-1 mt-1 rounded text-gray-900" />
 			</label>
 
-			<label class="text-gray-200">
+			<label class="text-gray-200 flex flex-col">
 				how many meeting
 				<input type="text" inputmode="numeric" class="p-1 mt-1 rounded text-gray-900" />
 			</label>
