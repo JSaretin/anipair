@@ -39,7 +39,7 @@
 				<input type="text" inputmode="numeric" class="p-2 w-full mt-1 rounded text-gray-900" />
 			</label>
 
-			<button class="bg-green-500 p-2 rounded-md text-white font-bold">confirm booking</button>
+			<button class="bg-green-500 p-3 mt-4 rounded-md text-white font-bold">confirm booking</button>
 		</div>
 	{/if}
 
