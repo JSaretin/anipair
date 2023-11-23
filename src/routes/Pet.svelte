@@ -1,10 +1,38 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import type { AniInfo } from '$lib/structure';
 
 	export let pet: AniInfo;
 	let image = pet.images[0];
 
 	let book: boolean;
+
+	let data: {
+		date: string;
+		location: string;
+		phone: string;
+		meetingCounts: number;
+	} = {
+		date: '',
+		location: '',
+		phone: '',
+		meetingCounts: 1
+	};
+
+	function getInfo() {
+		const info: string[] = ['PetID - ' + pet.id, 'Pet Title - ' + pet.title];
+		for (const key of Object.keys(data)) {
+			info.push(`${key} - ${data[key]}`);
+		}
+		const url = encodeURI("Hello, I'd like to cross my dog with this\n\n" + info.join('\n'));
+		return url;
+	}
+
+	async function confirmBooking() {
+		let link = `https://wa.me/2349131306787?text=${getInfo()}`;
+		// console.log(link);
+		await goto(link);
+	}
 </script>
 
 <div
@@ -21,25 +49,46 @@
 		>
 			<label class="text-gray-200 flex flex-col w-full">
 				meeting date
-				<input class="p-2 w-full mt-1 rounded text-gray-900" type="datetime-local" />
+				<input
+					bind:value={data.date}
+					class="p-2 w-full mt-1 rounded text-gray-900"
+					type="datetime-local"
+				/>
 			</label>
 
 			<label class="text-gray-200 flex flex-col w-full">
 				location
-				<textarea class="p-2 w-full mt-1 rounded text-gray-900 resize-none" />
+				<textarea
+					bind:value={data.location}
+					class="p-2 w-full mt-1 rounded text-gray-900 resize-none"
+				/>
 			</label>
 
 			<label class="text-gray-200 flex flex-col w-full">
 				call number
-				<input type="text" inputmode="numeric" class="p-2 w-full mt-1 rounded text-gray-900" />
+				<input
+					bind:value={data.phone}
+					type="text"
+					inputmode="numeric"
+					class="p-2 w-full mt-1 rounded text-gray-900"
+				/>
 			</label>
 
 			<label class="text-gray-200 flex flex-col w-full">
 				how many meeting
-				<input type="text" inputmode="numeric" class="p-2 w-full mt-1 rounded text-gray-900" />
+				<input
+					bind:value={data.meetingCounts}
+					type="text"
+					inputmode="numeric"
+					class="p-2 w-full mt-1 rounded text-gray-900"
+				/>
 			</label>
 
-			<button class="bg-green-500 p-3 mt-4 rounded-md text-white font-bold">confirm booking</button>
+			<button
+				on:click={confirmBooking}
+				class="bg-green-500 text-center p-3 mt-4 rounded-md text-white font-bold"
+				>confirm booking</button
+			>
 		</div>
 	{/if}
 
