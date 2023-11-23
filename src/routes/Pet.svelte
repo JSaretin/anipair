@@ -41,54 +41,60 @@
 	{#if book}
 		<!-- svelte-ignore a11y-no-static-element-interactions -->
 		<div
-			class="flex text-base lg:text-sm flex-col gap-4 overflow-y-scroll absolute inset-0 bg-black bg-opacity-80 backdrop-blur-sm p-4"
+			class="text-base lg:text-sm overflow-y-scroll absolute inset-0 bg-black bg-opacity-80 backdrop-blur-sm p-4"
 			on:keyup
 			on:click|self={() => {
 				book = false;
 			}}
 		>
-			<label class="text-gray-200 flex flex-col w-full">
-				meeting date
-				<input
-					bind:value={data.date}
-					class="p-2 w-full mt-1 rounded text-gray-900"
-					type="datetime-local"
-				/>
-			</label>
+			<form class="flex flex-col gap-4" on:submit|preventDefault={confirmBooking}>
+				<label class="text-gray-200 flex flex-col w-full">
+					meeting date
+					<input
+						required
+						bind:value={data.date}
+						class="p-2 w-full mt-1 rounded text-gray-900"
+						type="datetime-local"
+					/>
+				</label>
 
-			<label class="text-gray-200 flex flex-col w-full">
-				location
-				<textarea
-					bind:value={data.location}
-					class="p-2 w-full mt-1 rounded text-gray-900 resize-none"
-				/>
-			</label>
+				<label class="text-gray-200 flex flex-col w-full">
+					location
+					<textarea
+						required
+						bind:value={data.location}
+						class="p-2 w-full mt-1 rounded text-gray-900 resize-none"
+					/>
+				</label>
 
-			<label class="text-gray-200 flex flex-col w-full">
-				call number
-				<input
-					bind:value={data.phone}
-					type="text"
-					inputmode="numeric"
-					class="p-2 w-full mt-1 rounded text-gray-900"
-				/>
-			</label>
+				<label class="text-gray-200 flex flex-col w-full">
+					call number
+					<input
+						required
+						bind:value={data.phone}
+						type="text"
+						inputmode="numeric"
+						class="p-2 w-full mt-1 rounded text-gray-900"
+					/>
+				</label>
 
-			<label class="text-gray-200 flex flex-col w-full">
-				how many meeting
-				<input
-					bind:value={data.meetingCounts}
-					type="text"
-					inputmode="numeric"
-					class="p-2 w-full mt-1 rounded text-gray-900"
-				/>
-			</label>
+				<label class="text-gray-200 flex flex-col w-full">
+					how many meeting
+					<input
+						required
+						bind:value={data.meetingCounts}
+						type="text"
+						inputmode="numeric"
+						class="p-2 w-full mt-1 rounded text-gray-900"
+					/>
+				</label>
 
-			<button
-				on:click={confirmBooking}
-				class="bg-green-500 text-center p-3 mt-4 rounded-md text-white font-bold"
-				>confirm booking</button
-			>
+				<button
+					type="submit"
+					class="bg-green-500 text-center p-3 mt-4 rounded-md text-white font-bold"
+					>confirm booking</button
+				>
+			</form>
 		</div>
 	{/if}
 
