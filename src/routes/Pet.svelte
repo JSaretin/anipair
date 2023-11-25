@@ -127,7 +127,7 @@
 		<div class="flex justify-between">
 			<span
 				class="text-xs flex justify-center align-middle place-items-center bg-gray-300 w-1/4 rounded text-gray-700 font-bold"
-				>$15,000</span
+				>₦10,000</span
 			>
 			<button
 				on:click={() => {
